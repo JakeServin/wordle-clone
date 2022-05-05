@@ -1,0 +1,190 @@
+:root {
+    --my-green: rgb(121,167,107);
+    --my-yellow: rgb(198, 180, 102);
+    --my-grey: rgb(121,124,126);
+    --my-light-grey: rgb(212,214,218);
+}
+
+body {
+    font-family: 'roboto';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    user-select: none;
+    
+}
+
+#wordle-wrapper {
+    margin: 1rem;
+}
+
+#tran-screen {
+    z-index: 2;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 200vh;
+    color: whitesmoke;
+
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.wordle-square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+    border: 1.2px solid var(--my-light-grey);
+    margin: .09rem;
+    font-size: larger;
+    font-weight: 500;
+}
+
+.wordle-square-green {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+    border: 1.2px solid var(--my-green);
+    margin: .09rem;
+    font-size: larger;
+    font-weight: 500;
+    background-color: var(--my-green);
+    color: white;
+}
+.wordle-square-yellow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+    border: 1.2px solid var(--my-yellow);
+    margin: .09rem;
+    font-size: larger;
+    font-weight: 500;
+    background-color: var(--my-yellow);
+    color: white;
+}
+.wordle-square-grey {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+    border: 1.2px solid var(--my-grey);
+    margin: .09rem;
+    font-size: larger;
+    font-weight: 500;
+    background-color: var(--my-grey);
+    color: white;
+}
+.wordle-square-inc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+    border: 1.2px solid var(--my-grey);
+    margin: .09rem;
+    font-size: larger;
+    font-weight: 500;
+
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--my-light-grey);
+    height: 30px;
+    border-radius: 3px;
+    min-width: 25px;
+    flex-grow: 1;
+    color: black;
+    margin: .1rem;
+    font-size: 8px;
+    font-weight: 500;
+}
+
+.btn-grey {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--my-grey);
+    height: 30px;
+    border-radius: 3px;
+    min-width: 25px;
+    flex-grow: 1;
+    color: white;
+    margin: .1rem;
+    font-size: 8px;
+    font-weight: 500;
+}
+.btn-green {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--my-green);
+    height: 30px;
+    border-radius: 3px;
+    min-width: 25px;
+    flex-grow: 1;
+    color: white;
+    margin: .1rem;
+    font-size: 8px;
+    font-weight: 500;
+}
+.btn-yellow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--my-yellow);
+    height: 30px;
+    border-radius: 3px;
+    min-width: 25px;
+    flex-grow: 1;
+    color: white;
+    margin: .1rem;
+    font-size: 8px;
+    font-weight: 500;
+}
+#again-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--my-light-grey);
+    height: 30px;
+    border-radius: 3px;
+    min-width: 25px;
+    padding: 0 .5rem;
+    color: black;
+    margin: .1rem;
+    font-size: 8px;
+    font-weight: 500;
+}
+#again-btn:hover,
+.btn:hover {
+    cursor: pointer;
+}
+
