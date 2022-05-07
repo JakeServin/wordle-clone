@@ -4,6 +4,10 @@
     --my-grey: rgb(121,124,126);
     --my-light-grey: rgb(212,214,218);
 }
+html {
+    overflow: hidden;
+    width: 100%;
+    }
 
 body {
     font-family: 'roboto';
@@ -17,15 +21,21 @@ body {
 #main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     z-index: 1;
     user-select: none;
+    height: 90vh;
     
 }
 
 #wordle-wrapper {
     margin: 1rem;
+}
+
+#keyboard-wrapper {
+    width: 80vw;
+    position: fixed bottom;
 }
 
 #tran-screen {
@@ -38,7 +48,7 @@ body {
     position: fixed;
     background: rgba(0,0,0,0.6);
     width: 100%;
-    height: 200vh;
+    height: 100vh;
     color: whitesmoke;
 
 }
@@ -52,8 +62,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 32px;
-    width: 32px;
+    height: 40px;
+    width: 40px;
     border: 1.2px solid var(--my-light-grey);
     margin: .09rem;
     font-size: larger;
@@ -64,8 +74,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 32px;
-    width: 32px;
+    height: 40px;
+    width: 40px;
     border: 1.2px solid var(--my-green);
     margin: .09rem;
     font-size: larger;
@@ -77,8 +87,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 32px;
-    width: 32px;
+    height: 40px;
+    width: 40px;
     border: 1.2px solid var(--my-yellow);
     margin: .09rem;
     font-size: larger;
@@ -90,8 +100,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 32px;
-    width: 32px;
+    height: 40px;
+    width: 40px;
     border: 1.2px solid var(--my-grey);
     margin: .09rem;
     font-size: larger;
@@ -103,8 +113,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 32px;
-    width: 32px;
+    height: 40px;
+    width: 40px;
     border: 1.2px solid var(--my-grey);
     margin: .09rem;
     font-size: larger;
@@ -117,7 +127,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--my-light-grey);
-    height: 30px;
+    height: 40px;
     border-radius: 3px;
     min-width: 25px;
     flex-grow: 1;
@@ -132,7 +142,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--my-grey);
-    height: 30px;
+    height: 40px;
     border-radius: 3px;
     min-width: 25px;
     flex-grow: 1;
@@ -146,7 +156,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--my-green);
-    height: 30px;
+    height: 40px;
     border-radius: 3px;
     min-width: 25px;
     flex-grow: 1;
@@ -160,7 +170,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--my-yellow);
-    height: 30px;
+    height: 40px;
     border-radius: 3px;
     min-width: 25px;
     flex-grow: 1;
@@ -186,5 +196,23 @@ body {
 #again-btn:hover,
 .btn:hover {
     cursor: pointer;
+}
+
+.shake {
+    animation: shake 0.5s;
+    animation-iteration-count: 1;
+}
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
