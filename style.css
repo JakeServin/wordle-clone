@@ -25,7 +25,7 @@ body {
     align-items: center;
     z-index: 1;
     user-select: none;
-    height: 90vh;
+    height: 100vh;
     
 }
 
@@ -62,10 +62,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
-    width: 40px;
+    height: 55px;
+    width: 55px;
     border: 1.2px solid var(--my-light-grey);
-    margin: .09rem;
+    margin: .19rem;
     font-size: larger;
     font-weight: 500;
 }
@@ -74,10 +74,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
-    width: 40px;
+    height: 55px;
+    width: 55px;
     border: 1.2px solid var(--my-green);
-    margin: .09rem;
+    margin: .19rem;
     font-size: larger;
     font-weight: 500;
     background-color: var(--my-green);
@@ -87,10 +87,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
-    width: 40px;
+    height: 55px;
+    width: 55px;
     border: 1.2px solid var(--my-yellow);
-    margin: .09rem;
+    margin: .19rem;
     font-size: larger;
     font-weight: 500;
     background-color: var(--my-yellow);
@@ -100,10 +100,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
-    width: 40px;
+    height: 55px;
+    width: 55px;
     border: 1.2px solid var(--my-grey);
-    margin: .09rem;
+    margin: .19rem;
     font-size: larger;
     font-weight: 500;
     background-color: var(--my-grey);
@@ -113,10 +113,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
-    width: 40px;
+    height: 55px;
+    width: 55px;
     border: 1.2px solid var(--my-grey);
-    margin: .09rem;
+    margin: .19rem;
     font-size: larger;
     font-weight: 500;
 
@@ -127,14 +127,15 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--my-light-grey);
-    height: 50px;
+    height: 55px;
     border-radius: 3px;
     min-width: 25px;
     flex-grow: 1;
     color: black;
     margin: .2rem;
-    font-size: 8px;
-    font-weight: 500;
+    font-size: 12px;
+    font-weight: 700;
+
 }
 
 .btn-grey {
