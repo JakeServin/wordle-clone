@@ -25,7 +25,7 @@ body {
     align-items: center;
     z-index: 1;
     user-select: none;
-    height: 100vh;
+    height: 85vh;
     
 }
 
@@ -64,10 +64,10 @@ body {
     align-items: center;
     height: 55px;
     width: 55px;
-    border: 1.2px solid var(--my-light-grey);
+    border: 2px solid var(--my-light-grey);
     margin: .19rem;
-    font-size: larger;
-    font-weight: 500;
+    font-size: 33px;
+    font-weight: 700;
 }
 
 .wordle-square-green {
@@ -76,10 +76,10 @@ body {
     align-items: center;
     height: 55px;
     width: 55px;
-    border: 1.2px solid var(--my-green);
+    border: 2px solid var(--my-green);
     margin: .19rem;
-    font-size: larger;
-    font-weight: 500;
+    font-size: 33px;
+    font-weight: 700;
     background-color: var(--my-green);
     color: white;
 }
@@ -89,10 +89,10 @@ body {
     align-items: center;
     height: 55px;
     width: 55px;
-    border: 1.2px solid var(--my-yellow);
+    border: 2px solid var(--my-yellow);
     margin: .19rem;
-    font-size: larger;
-    font-weight: 500;
+    font-size: 33px;
+    font-weight: 700;
     background-color: var(--my-yellow);
     color: white;
 }
@@ -102,10 +102,10 @@ body {
     align-items: center;
     height: 55px;
     width: 55px;
-    border: 1.2px solid var(--my-grey);
+    border: 2px solid var(--my-grey);
     margin: .19rem;
-    font-size: larger;
-    font-weight: 500;
+    font-size: 33px;
+    font-weight: 700;
     background-color: var(--my-grey);
     color: white;
 }
@@ -115,10 +115,10 @@ body {
     align-items: center;
     height: 55px;
     width: 55px;
-    border: 1.2px solid var(--my-grey);
+    border: 2px solid var(--my-grey);
     margin: .19rem;
-    font-size: larger;
-    font-weight: 500;
+    font-size: 33px;
+    font-weight: 700;
 
 }
 
@@ -143,13 +143,13 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--my-grey);
-    height: 40px;
+    height: 55px;
     border-radius: 3px;
     min-width: 25px;
     flex-grow: 1;
     color: white;
-    margin: .1rem;
-    font-size: 8px;
+    margin: .2rem;
+    font-size:12px;
     font-weight: 500;
 }
 .btn-green {
@@ -157,13 +157,13 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--my-green);
-    height: 40px;
+    height: 55px;
     border-radius: 3px;
     min-width: 25px;
     flex-grow: 1;
     color: white;
-    margin: .1rem;
-    font-size: 8px;
+    margin: .2rem;
+    font-size:12px;
     font-weight: 500;
 }
 .btn-yellow {
@@ -171,13 +171,13 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--my-yellow);
-    height: 40px;
+    height: 55px;
     border-radius: 3px;
     min-width: 25px;
     flex-grow: 1;
     color: white;
-    margin: .1rem;
-    font-size: 8px;
+    margin: .2rem;
+    font-size: 12px;
     font-weight: 500;
 }
 #again-btn {
@@ -191,7 +191,7 @@ body {
     padding: 0 .5rem;
     color: black;
     margin: .1rem;
-    font-size: 8px;
+    font-size: 12px;
     font-weight: 500;
 }
 #again-btn:hover,
