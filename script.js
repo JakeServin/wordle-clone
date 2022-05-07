@@ -448,12 +448,7 @@ document.getElementById('again-btn').addEventListener('click', () => {
 let answer = words[getRandomInt(0, words.length)];
 console.log(answer);
 
-window.addEventListener("load", function () {
-    setTimeout(function () {
-        // This hides the address bar:
-        window.scrollTo(0, 1);
-    }, 0);
-});
+window.scrollTo(0, 1);
 
 
 let drags = new Set() //set of all active drags
