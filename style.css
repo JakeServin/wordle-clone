@@ -18,17 +18,17 @@ body {
 #title {
     font-size: 2.5rem;
     font-family: merriweather;
-    margin: 1rem 0 0 0;
+    margin: 0 0 0 0;
 }
 
 #main {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-
+    height: 88vh;
     user-select: none;
-    height: 100vh;
+
     
 }
 
