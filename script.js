@@ -4,6 +4,8 @@ let currentSquare = 0;
 let rowPosition = 0;
 let row = 0;
 
+
+// FUNCTIONS
 // Wordle check function
 async function checkWordle() {
     // check if input is actually a word
@@ -76,13 +78,14 @@ function alreadyGreen(btnName) {
 
 }
 
-// get random int between 2 numbers
+// get random int between 2 numbers - sourced from w3schools
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
 }
 
+// reset game, pick new word
 function resetGame() {
     currentSquare = 0;
     rowPosition = 0;
@@ -96,7 +99,9 @@ function gameOver(msg) {
     document.getElementById('tran-screen').style.display = '';
 }
 
-// Make each item clickable
+
+// MAIN CODE
+// Make each item clickable 
 document.addEventListener('click', async(event) => {
     // Only do something if it's a button
     if (event.target.classList.contains('btn')) {
@@ -108,6 +113,7 @@ document.addEventListener('click', async(event) => {
             // Delete last square if letter present
             } else {
                 squarePositions[currentSquare-1].classList.remove('wordle-square-inc');
+                squarePositions[currentSquare-1].classList.remove('bounce');
                 squarePositions[currentSquare-1].innerText = '';
                 currentSquare--;
                 rowPosition--;
@@ -134,6 +140,7 @@ document.addEventListener('click', async(event) => {
         else {
             squarePositions[currentSquare].innerText = event.target.innerText;
             squarePositions[currentSquare].classList.add('wordle-square-inc');
+            squarePositions[currentSquare].classList.add('bounce');
             currentSquare++;
             rowPosition++;
         }
@@ -230,7 +237,7 @@ document.getElementById('again-btn').addEventListener('click', () => {
 })
 
 
-//set random word
+// Set random word
 let answer = words[getRandomInt(0, words.length)];
 console.log(answer);
 
