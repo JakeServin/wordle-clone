@@ -41,6 +41,7 @@ body {
 }
 
 #tran-screen {
+    text-align: center;
     z-index: 2;
     height: 80vh;
     display: flex;
