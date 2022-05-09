@@ -60,7 +60,6 @@ let words = [
     'Focus',
     'Force',
     'Frame',
-    'Frank',
     'Front',
     'Fruit',
     'Glass',
@@ -70,7 +69,6 @@ let words = [
     'Group',
     'Guide',
     'Heart',
-    'Henry',
     'Horse',
     'Hotel',
     'House',
@@ -79,13 +77,10 @@ let words = [
     'Input',
     'Issue',
     'Japan',
-    'Jones',
     'Judge',
     'Knife',
-    'Laura',
     'Layer',
     'Level',
-    'Lewis',
     'Light',
     'Limit',
     'Lunch',
@@ -112,8 +107,6 @@ let words = [
     'Paper',
     'Party',
     'Peace',
-    'Peter',
-    'Phase',
     'Phone',
     'Piece',
     'Pilot',
@@ -153,7 +146,6 @@ let words = [
     'Shirt',
     'Shock',
     'Sight',
-    'Simon',
     'Skill',
     'Sleep',
     'Smile',
@@ -181,7 +173,6 @@ let words = [
     'Sugar',
     'Table',
     'Taste',
-    'Terry',
     'Theme',
     'Thing',
     'Title',
@@ -272,7 +263,7 @@ async function checkWordle() {
         return;
     }
     if (row > 4) {
-        gameOver("lose!");
+        gameOver(`lose! The word was ${answer}`);
         return;
     }
     //Start on next row
