@@ -38,6 +38,7 @@ body {
 
 #keyboard-wrapper {
     width: 99vw;
+    max-width: 600px;
     position: fixed bottom;
 }
 
@@ -233,19 +234,13 @@ body {
 
 @keyframes bounce {
     0% {
-        position: relative;
-        height: 55px;
-        width: 55px;
+       transform: scale(1);
     }
     50% {
-        position: relative;
-        height: 58px;
-        width: 58px;
+        transform: scale(1.1);
     }
     100% {
-        position: relative;
-        height: 55px;
-        width: 55px;
+        transform: scale(1);
     }
 }
 
