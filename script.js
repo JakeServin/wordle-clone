@@ -7,6 +7,9 @@ let row = 0;
 
 // FUNCTIONS
 // Wordle check function
+
+const wait = (timeToDelay) => new Promise((resolve) => setTimeout(resolve, timeToDelay));
+
 async function checkWordle() {
     // check if input is actually a word
     let check = '';
@@ -33,16 +36,21 @@ async function checkWordle() {
     currentSquare -= 5;
     //check and set each letter 
     for (let i = 0; i < 5; i++) {
+        await wait(62);
         guess += squarePositions[currentSquare].innerText;
         squarePositions[currentSquare].classList.remove('wordle-square-inc');
-        // if correct
+        squarePositions[currentSquare].classList.add('bounce2');
+        //If letter is in answer
         if (answer[i].toUpperCase() == squarePositions[currentSquare].innerText) {
             // set square and button to green
             squarePositions[currentSquare].classList.add('wordle-square-green');
             document.getElementById(`${squarePositions[currentSquare].innerText.toLowerCase()}-btn`).setAttribute('class','btn btn-green');
 
-        } else if (answer.toUpperCase().includes(squarePositions[currentSquare].innerText)) {
+        }
+        // If letter is in the wrong spot
+        else if (answer.toUpperCase().includes(squarePositions[currentSquare].innerText)) {
             squarePositions[currentSquare].classList.add('wordle-square-yellow');
+            // check if letter button is laready green before setting to yellow
             if (alreadyGreen(squarePositions[currentSquare].innerText)) {
     
             } else {
