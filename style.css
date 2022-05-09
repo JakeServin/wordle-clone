@@ -16,8 +16,8 @@ body {
 }
 
 #title {
-    margin-top: 3vh;
     font-size: 2.25rem;
+    font-family: merriweather
 }
 
 #main {
