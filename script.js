@@ -39,7 +39,6 @@ async function checkWordle() {
         await wait(62);
         guess += squarePositions[currentSquare].innerText;
         squarePositions[currentSquare].classList.remove('wordle-square-inc');
-        squarePositions[currentSquare].classList.add('reveal');
         //If letter is in answer
         if (answer[i].toUpperCase() == squarePositions[currentSquare].innerText) {
             // set square and button to green
@@ -60,6 +59,7 @@ async function checkWordle() {
             squarePositions[currentSquare].classList.add('wordle-square-grey');
             document.getElementById(`${squarePositions[currentSquare].innerText.toLowerCase()}-btn`).setAttribute('class', 'btn btn-grey');
         }
+        squarePositions[currentSquare].classList.add('reveal');
         currentSquare++
     }
     if (guess == answer.toLocaleUpperCase()) {
