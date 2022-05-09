@@ -224,7 +224,7 @@ async function checkWordle() {
         return data;
     })
     // If the word doesn't exist, do shake animation, don't run code
-    if (wordleData.title == "No Definitions Found") {
+    if (wordleData.title == "No Definitions Found" && check != 'PHASE') {
         console.log(document.getElementById(`row${row + 1}`));
         document.getElementById(`row${row + 1}`).classList.add('shake');
         setTimeout(() => {
