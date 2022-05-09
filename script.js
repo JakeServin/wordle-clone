@@ -6,10 +6,11 @@ let row = 0;
 
 
 // FUNCTIONS
-// Wordle check function
 
+// Function to make code wait since setTimeout didn't work
 const wait = (timeToDelay) => new Promise((resolve) => setTimeout(resolve, timeToDelay));
 
+// Wordle check function
 async function checkWordle() {
     // check if input is actually a word
     let check = '';
@@ -22,7 +23,7 @@ async function checkWordle() {
     let wordleData = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${check}`).then(res => (res.json())).then((data) => {
         return data;
     })
-    // If the word doesn't exist, do shake animation, don't run code
+    // If the word doesn't exist, do shake animation, don't run code - Phase is not included in free dictionary API (added manually)
     if (wordleData.title == "No Definitions Found" && check != 'PHASE') {
         console.log(document.getElementById(`row${row + 1}`));
         document.getElementById(`row${row + 1}`).classList.add('shake');
@@ -32,12 +33,11 @@ async function checkWordle() {
 
         return;
     } 
-    let guess = '';
+
     currentSquare -= 5;
     //check and set each letter 
     for (let i = 0; i < 5; i++) {
         await wait(62);
-        guess += squarePositions[currentSquare].innerText;
         squarePositions[currentSquare].classList.remove('wordle-square-inc');
         //If letter is in answer
         if (answer[i].toUpperCase() == squarePositions[currentSquare].innerText) {
@@ -62,7 +62,7 @@ async function checkWordle() {
         squarePositions[currentSquare].classList.add('reveal');
         currentSquare++
     }
-    if (guess == answer.toLocaleUpperCase()) {
+    if (check == answer.toLocaleUpperCase()) {
         gameOver('win!');
         return;
     }
@@ -227,7 +227,7 @@ document.getElementById('again-btn').addEventListener('click', () => {
         <div id="l-btn" class="btn">L</div>
     </div>
     <div class="row">
-        <div id="enter-btn" class="btn">ENTER</div>
+        <div id="enter-btn" class="btn" style="flex-grow: 2">ENTER</div>
         <div id="z-btn" class="btn">Z</div>
         <div id="x-btn" class="btn">X</div>
         <div id="c-btn" class="btn">C</div>
@@ -235,7 +235,7 @@ document.getElementById('again-btn').addEventListener('click', () => {
         <div id="b-btn" class="btn">B</div>
         <div id="n-btn" class="btn">N</div>
         <div id="m-btn" class="btn">M</div>
-        <div id="del-btn" class="btn"><---</div>
+        <div id="del-btn" class="btn" style="flex-grow: 2"><---</div>
     </div>
 </div>
 </div>
