@@ -39,7 +39,7 @@ async function checkWordle() {
         await wait(62);
         guess += squarePositions[currentSquare].innerText;
         squarePositions[currentSquare].classList.remove('wordle-square-inc');
-        squarePositions[currentSquare].classList.add('bounce2');
+        squarePositions[currentSquare].classList.add('reveal');
         //If letter is in answer
         if (answer[i].toUpperCase() == squarePositions[currentSquare].innerText) {
             // set square and button to green
