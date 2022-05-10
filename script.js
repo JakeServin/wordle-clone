@@ -1,25 +1,41 @@
-// array of squares to iterate through as letters are pressed
+// Variables
+
+// Array of squares to iterate through as letters are pressed
 let squarePositions = document.getElementsByClassName('wordle-square');
+// Iterator for squarePositions
 let currentSquare = 0;
+// Variable to keep track of row position 0-5
 let rowPosition = 0;
+// Variable to keep track of row 0-5
 let row = 0;
 
 
 // FUNCTIONS
 
-// Function to make code wait since setTimeout didn't work
+// Function to make code wait since setTimeout didn't work - found online
 const wait = (timeToDelay) => new Promise((resolve) => setTimeout(resolve, timeToDelay));
+
+// Checks if button is already green 
+function alreadyGreen(btnName) {
+    btnName = btnName.toLowerCase();
+    if (document.getElementById(`${btnName}-btn`).classList.contains('btn-green')) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
 
 // Wordle check function
 async function checkWordle() {
-    // check if input is actually a word
+    // Get word from tiles
     let check = '';
     currentSquare -= 5;
     for (let i = 0; i < 5; i++){
         check += squarePositions[currentSquare].innerText
         currentSquare++;
     }
-    console.log(check);
+    // Check if word exists
     let wordleData = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${check}`).then(res => (res.json())).then((data) => {
         return data;
     })
@@ -35,81 +51,78 @@ async function checkWordle() {
     } 
 
     currentSquare -= 5;
-    //check and set each letter 
+    // Check and set each letter 
     for (let i = 0; i < 5; i++) {
+        // Wait function gives animation effect by waiting .062 secs to before changing next tile
         await wait(62);
+        // Remove current style on square
         squarePositions[currentSquare].classList.remove('wordle-square-inc');
-        //If letter is in answer
+        // If letter is in answer
         if (answer[i].toUpperCase() == squarePositions[currentSquare].innerText) {
-            // set square and button to green
+            // Set square and button to green
             squarePositions[currentSquare].classList.add('wordle-square-green');
             document.getElementById(`${squarePositions[currentSquare].innerText.toLowerCase()}-btn`).setAttribute('class','btn btn-green');
 
         }
         // If letter is in the wrong spot
         else if (answer.toUpperCase().includes(squarePositions[currentSquare].innerText)) {
+            // Change square to yellow
             squarePositions[currentSquare].classList.add('wordle-square-yellow');
-            // check if letter button is laready green before setting to yellow
-            if (alreadyGreen(squarePositions[currentSquare].innerText)) {
-    
-            } else {
+            // Check if letter button is already green before setting to yellow
+            if (!alreadyGreen(squarePositions[currentSquare].innerText)) {
+                // Change button to yellow
                 document.getElementById(`${squarePositions[currentSquare].innerText.toLowerCase()}-btn`).setAttribute('class','btn-yellow btn');
             }
-        } else {
+        }
+        // If letter is not in word
+        else {
+            // Change square and button to grey
             squarePositions[currentSquare].classList.add('wordle-square-grey');
             document.getElementById(`${squarePositions[currentSquare].innerText.toLowerCase()}-btn`).setAttribute('class', 'btn btn-grey');
         }
+        // Animation enlarges square
         squarePositions[currentSquare].classList.add('reveal');
         currentSquare++
     }
+    // If the answer is correct, display win message & play again button
     if (check == answer.toLocaleUpperCase()) {
         gameOver('win!');
         return;
     }
+    // If it's the last row and the answer is wrong, display lose message/play again button/answer
     if (row > 4) {
         gameOver(`lose! The word was ${answer}`);
         return;
     }
-    //Start on next row
+    // Start on next row
     row++
     rowPosition = 0;
 }
 
-// checks if button is already green 
-function alreadyGreen(btnName) {
-    btnName = btnName.toLowerCase();
-    if (document.getElementById(`${btnName}-btn`).classList.contains('btn-green')) {
-        return true;
-    } else {
-        return false;
-    }
-
-}
-
-// get random int between 2 numbers - sourced from w3schools
+// Function to get random int between 2 numbers - sourced from w3schools
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
 }
 
-// reset game, pick new word
-function resetGame() {
-    currentSquare = 0;
-    rowPosition = 0;
-    row = 0;
-    answer = words[getRandomInt(0, words.length)];
-    console.log(answer);
-}
-
+// Display win/lose message
 function gameOver(msg) {
     document.getElementById('message').innerText = msg;
     document.getElementById('tran-screen').style.display = '';
 }
 
+// Reset game, pick new word, set iterators to 0
+function resetGame() {
+    currentSquare = 0;
+    rowPosition = 0;
+    row = 0;
+    answer = words[getRandomInt(0, words.length)];
+}
+
 
 // MAIN CODE
-// Make each item clickable 
+// Make each item clickable - Adds click event listener to whole page, 
 document.addEventListener('click', async(event) => {
     // Only do something if it's a button
     if (event.target.classList.contains('btn')) {
@@ -127,9 +140,9 @@ document.addEventListener('click', async(event) => {
                 rowPosition--;
             }
         }
-        // if enter button is pressed
+        // If enter button is pressed
         else if (event.target.id == 'enter-btn') {
-            // Do nothing if all 5 squares not complete
+            // If the row is incomplete, shake
             if (rowPosition != 5) {
                 document.getElementById(`row${row + 1}`).classList.add('shake');
                 setTimeout(() => {
@@ -137,14 +150,15 @@ document.addEventListener('click', async(event) => {
                 }, 500);
                 return
             } else {
+                // If the row is complete, check word
                 checkWordle();
             }
         }
-        // If theres no squares left dont do anything
+        // If row is full, do nothing unless enter or delete button is pressed
         else if (rowPosition == 5) {
             return;
         } 
-        // If a letter button is pressed, and square is available 
+        // If a letter button is pressed, and square is available, change the square to the letter, add animation, increment currentSquare and rowPosition iterators 
         else {
             squarePositions[currentSquare].innerText = event.target.innerText;
             squarePositions[currentSquare].classList.add('wordle-square-inc');
@@ -155,7 +169,7 @@ document.addEventListener('click', async(event) => {
     }
 })
 
-// "Play Again" resets game and gets new word
+// "Play Again" resets game's html, picks new word, hides transition screen, and sets iterators to 0
 document.getElementById('again-btn').addEventListener('click', () => {
     document.getElementById('main').innerHTML = `<h2 id="title">Wordle Clone!</h2>
     <div id="wordle-wrapper" >
@@ -244,10 +258,8 @@ document.getElementById('again-btn').addEventListener('click', () => {
     resetGame();
 })
 
-
-// Set random word
+// Set intial answer
 let answer = words[getRandomInt(0, words.length)];
-console.log(answer);
 
 window.addEventListener("load",function() {
     setTimeout(function(){
@@ -256,7 +268,7 @@ window.addEventListener("load",function() {
     }, 0);
 });
 
-// CODE BELOW PREVENTS DOUBLE-TAPS
+// CODE BELOW PREVENTS DOUBLE-TAPS - sourced online
 let drags = new Set() //set of all active drags
 document.addEventListener("touchmove", function(event){
   if(!event.isTrusted)return //don't react to fake touches
