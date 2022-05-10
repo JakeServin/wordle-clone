@@ -347,7 +347,8 @@ let words = [
 'Light',
 'Local',
 'Loose',
-'Lucky',
+    'Lucky',
+    'Lyric',
 'Magic',
 'Major',
 'Minor',
@@ -402,3 +403,4 @@ let words = [
 'Wrong',
 'Young',
 ]
+
