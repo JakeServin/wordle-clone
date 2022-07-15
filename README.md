@@ -16,4 +16,4 @@ This Wordle clone was built from scratch without any tutorials or looking at any
 
 - [Free Dictionary API](https://dictionaryapi.dev)
 
-#### Built by <a href="www.jakeservin.dev">Jake Servin</a>
+#### Built by www.jakeservin.dev
