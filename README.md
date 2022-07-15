@@ -1,6 +1,6 @@
 # Endless World!
 
-<img src="" alt="img-coming" width="800"/>
+<img src="./images/wordlecloneMockup.png" alt="img-coming" width="800"/>
 
 ## Overview:
 
